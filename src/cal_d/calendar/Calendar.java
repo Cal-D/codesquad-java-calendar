@@ -3,8 +3,11 @@ package cal_d.calendar;
 import java.util.Scanner;
 
 public class Calendar {
-
-	public static void main(String[] args) {
+	private final int[] MAX_DAYS = {31,28,31,30,31,30,31,31,30,31,30,31};
+	public int getmaxDaysOfMonth(int month) {
+		return MAX_DAYS[month - 1];
+	}
+	public void printSampleCalendar() {
 		System.out.println("일   월   화   수   목   금   토");
 		System.out.println("--------------------");
 		System.out.println("1  2  3  4  5  6  7");
@@ -12,12 +15,15 @@ public class Calendar {
 		System.out.println("15 16 17 18 19 20 21");
 		System.out.println("22 23 24 25 26 27 28");
 		
+	}
+	public static void main(String[] args) {
+	
 		int month;
-		int[] days_month = {31,28,31,30,31,30,31,31,30,31,30,31};
+		Calendar cal = new Calendar();
 		System.out.println("달을 입력하세요.");
 		Scanner sc = new Scanner(System.in);
 		month = sc.nextInt();
-		System.out.printf("%d월은 %d일까지 있습니다.\n",month,days_month[month - 1]);
+		System.out.printf("%d월은 %d일까지 있습니다.\n",month,cal.getmaxDaysOfMonth(month));
 		sc.close();
 		
 	}
